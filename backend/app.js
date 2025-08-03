@@ -1,6 +1,16 @@
 import express from 'express'
 import cors from 'cors'
+import path from 'path';
 import cookieParser from 'cookie-parser'
+
+const __dirname = path.resolve();
+
+// Serve React build files
+app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
+});
 
 const app = express();
 app.use(cors({
