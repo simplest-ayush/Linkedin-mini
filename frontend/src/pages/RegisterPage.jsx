@@ -92,6 +92,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import axios from "axios";
+import instance from "../api/axios";
 
 export default function RegisterPage() {
   const [name, setName] = useState("");
@@ -107,13 +108,13 @@ export default function RegisterPage() {
     setError("");
 
     try {
-      await axios.post(
+      await instance.post(
         "/users/register",
         { name, email, bio, password },
         { withCredentials: true }
       );
 
-      const userRes = await axios.get("/users/current-user", {
+      const userRes = await instance.get("/users/current-user", {
         withCredentials: true,
       });
 

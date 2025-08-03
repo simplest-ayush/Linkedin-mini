@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../contexts/AuthContext";
 import toast from "react-hot-toast";
+import instance from '../api/axios.js'
 
 export default function EditProfile({ user, onUpdate }) {
   const [bio, setBio] = useState(user.bio || "");
@@ -15,7 +16,7 @@ export default function EditProfile({ user, onUpdate }) {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.patch(
+      const res = await instance.patch(
         "/users/update-account",
         { bio, email },
         { withCredentials: true }
