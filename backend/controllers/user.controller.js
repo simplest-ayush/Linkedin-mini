@@ -39,7 +39,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const options = {
         httpOnly: true,
         secure: true, // false in dev
-        sameSite: "lax",
+        sameSite: "none",
     };
 
     // ✅ Return response
@@ -94,7 +94,8 @@ const loginuser = asyncHandler(async (req, res) => {
 
     const options = {
         httpOnly: true,
-        secure: true
+        secure: true,
+        sameSite: "none",
     }
     res.status(200)
         .cookie("accessToken", accessToken, options)
@@ -123,7 +124,8 @@ const logoutUser = asyncHandler(async (req, res) => {
     )
     const options = {
         httpOnly: true,
-        secure: true
+        secure: true,
+        sameSite: "none",
     }
 
     return res
@@ -157,7 +159,8 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 
         const options = {
             httpOnly: true,
-            secure: true
+            secure: true,
+            sameSite: "none",
         }
 
         // console.log("New refresh token is : ", newRefreshToken);
