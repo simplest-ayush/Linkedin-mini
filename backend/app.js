@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'
 
 const __dirname = path.resolve();
 
+const app = express();
 // Serve React build files
 app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
 
@@ -12,7 +13,6 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
 });
 
-const app = express();
 app.use(cors({
     // origin: process.env.CORS_ORIGIN,
     origin: 'http://localhost:5173',
