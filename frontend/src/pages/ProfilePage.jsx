@@ -100,7 +100,7 @@ export default function ProfilePage() {
 
     // Fetch posts by that user
     instance
-      .get(`/posts/get-post/:${id}`, { withCredentials: true })
+      .get(`/posts/get-post/${id}`, { withCredentials: true })
       .then((res) => setPosts(res.data.data))
       .catch(() => setPosts([]));
   }, [id]);
