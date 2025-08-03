@@ -10,14 +10,14 @@ export default function AuthProvider({ children }) {
 
   useEffect(() => {
     axios
-      .get("/api/v1/users/current-user", { withCredentials: true })
+      .get("/users/current-user", { withCredentials: true })
       .then((res) => setUser(res.data.data))
       .catch(() => setUser(null))
       .finally(() => setLoading(false));
   }, []);
 
   const logout = async () => {
-    await axios.post("/api/v1/users/logout", {}, { withCredentials: true });
+    await axios.post("/users/logout", {}, { withCredentials: true });
     setUser(null);
   };
 

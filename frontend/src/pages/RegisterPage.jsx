@@ -108,12 +108,12 @@ export default function RegisterPage() {
 
     try {
       await axios.post(
-        "/api/v1/users/register",
+        "/users/register",
         { name, email, bio, password },
         { withCredentials: true }
       );
 
-      const userRes = await axios.get("/api/v1/users/current-user", {
+      const userRes = await axios.get("/users/current-user", {
         withCredentials: true,
       });
 

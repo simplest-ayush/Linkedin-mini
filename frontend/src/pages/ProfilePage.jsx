@@ -93,13 +93,13 @@ export default function ProfilePage() {
   useEffect(() => {
     // Fetch the profile user data by ID
     axios
-      .get("/api/v1/users/current-user", { withCredentials: true })
+      .get("/users/current-user", { withCredentials: true })
       .then((res) => setUser(res.data.data))
       .catch(() => setUser(null));
 
     // Fetch posts by that user
     axios
-      .get(`/api/v1/posts/get-post/:${id}`, { withCredentials: true })
+      .get(`/posts/get-post/:${id}`, { withCredentials: true })
       .then((res) => setPosts(res.data.data))
       .catch(() => setPosts([]));
   }, [id]);

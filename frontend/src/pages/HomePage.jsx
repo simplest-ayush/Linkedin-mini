@@ -9,13 +9,13 @@ export default function HomePage() {
 
   useEffect(() => {
     axios
-      .get("/api/v1/posts/get-all-posts", { withCredentials: true })
+      .get("/posts/get-all-posts", { withCredentials: true })
       .then((res) => setPosts(res.data.data));
   }, [refresh]);
 
   const handleCreatePost = (content, reset) => {
     axios
-      .post("/api/v1/posts/create-post", { content }, { withCredentials: true })
+      .post("/posts/create-post", { content }, { withCredentials: true })
       .then(() => {
         setRefresh((val) => !val);
         reset("");

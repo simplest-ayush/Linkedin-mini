@@ -79,7 +79,7 @@ export default function LoginPage() {
     e.preventDefault();
     axios
       .post(
-        "/api/v1/users/login",
+        "/users/login",
         { email, password },
         { withCredentials: true }
       )

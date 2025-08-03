@@ -23,8 +23,8 @@ import userRouter from './routes/user.route.js'
 import postRouter from './routes/post.route.js'
 
 // routes declaration
-app.use('/api/v1/users', userRouter)
-app.use('/api/v1/posts', postRouter)
+app.use('/users', userRouter)
+app.use('/posts', postRouter)
 
 
 // Serve React build files

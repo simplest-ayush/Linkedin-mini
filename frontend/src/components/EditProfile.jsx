@@ -16,7 +16,7 @@ export default function EditProfile({ user, onUpdate }) {
     setError(null);
     try {
       const res = await axios.patch(
-        "/api/v1/users/update-account",
+        "/users/update-account",
         { bio, email },
         { withCredentials: true }
       );
