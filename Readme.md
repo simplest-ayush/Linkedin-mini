@@ -16,14 +16,13 @@ It supports user authentication, profile management, creating and browsing publi
 - **User Profiles:**
 
   - Personal profile with name, email, bio
-  - View profiles of other users and their posts
+  - View posts of all the users
   - Update your own profile (email, bio)
 
 - **Post Feed:**
 
   - Create text-only posts
   - Public feed with posts sorted newest first
-  - View posts of specific users
   - Author info shown with each post (custom emoji avatars for users)
 
 - **Frontend:**
