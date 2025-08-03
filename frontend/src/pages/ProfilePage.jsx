@@ -99,7 +99,7 @@ export default function ProfilePage() {
 
     // Fetch posts by that user
     axios
-      .get(`/api/v1/posts/get-post/${id}`, { withCredentials: true })
+      .get(`/api/v1/posts/get-post/:${id}`, { withCredentials: true })
       .then((res) => setPosts(res.data.data))
       .catch(() => setPosts([]));
   }, [id]);
