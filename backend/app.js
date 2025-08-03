@@ -8,8 +8,8 @@ const __dirname = path.resolve();
 const app = express();
 
 app.use(cors({
-    origin: process.env.CORS_ORIGIN,
-    // origin: 'https://pronetworker.netlify.app/',
+    // origin: process.env.CORS_ORIGIN,
+    origin: 'https://linkednmini.netlify.app/',
     credentials: true
 }));
 
