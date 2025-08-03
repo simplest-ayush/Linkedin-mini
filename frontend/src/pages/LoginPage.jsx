@@ -67,6 +67,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import axios from "axios";
+import instance from "../api/axios.js";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -77,12 +78,9 @@ export default function LoginPage() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    axios
-      .post(
-        "/users/login",
-        { email, password },
-        { withCredentials: true }
-      )
+    setError("");
+    instance
+      .post("/users/login", { email, password }, { withCredentials: true })
       .then((res) => {
         setUser(res.data.data.user);
         navigate("/");
