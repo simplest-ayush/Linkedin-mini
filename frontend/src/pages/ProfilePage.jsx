@@ -78,6 +78,7 @@ import ProfileCard from "../components/ProfileCard";
 import PostFeed from "../components/PostFeed";
 import EditProfile from "../components/EditProfile";
 import axios from "axios";
+import instance from "../api/axios";
 import { useAuth } from "../contexts/AuthContext";
 
 export default function ProfilePage() {
@@ -92,13 +93,13 @@ export default function ProfilePage() {
 
   useEffect(() => {
     // Fetch the profile user data by ID
-    axios
+    instance
       .get("/users/current-user", { withCredentials: true })
       .then((res) => setUser(res.data.data))
       .catch(() => setUser(null));
 
     // Fetch posts by that user
-    axios
+    instance
       .get(`/posts/get-post/:${id}`, { withCredentials: true })
       .then((res) => setPosts(res.data.data))
       .catch(() => setPosts([]));
